@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>American Tube</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* Reset e base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #f1f1f1;
+    display: flex;
+  }
+
+  /* Cabeçalho topo */
+  header {
+    background-color: #202020;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 240px; /* Largura da sidebar */
+    right: 0;
+    z-index: 1000;
+  }
+  header h1 {
+    font-size: 1.5rem;
+    color: #ff0000;
+    margin-left: 10px;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  .logo-container img {
+    border-radius: 50%;
+  }
+
+  /* Barra de pesquisa */
+  .search-bar {
+    display: flex;
+    flex: 1;
+    max-width: 600px;
+    margin: 0 20px;
+  }
+  .search-bar input {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #303030;
+    border: 1px solid #444;
+    color: #f1f1f1;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .search-bar input:focus {
+    border-color: #3ea6ff;
+  }
+  .search-bar button {
+    padding: 10px 20px;
+    border: 1px solid #444;
+    border-left: none;
+    background-color: #424242;
+    color: #f1f1f1;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 0 20px 20px 0;
+    transition: background-color 0.3s;
+  }
+  .search-bar button:hover {
+    background-color: #555;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 240px;
+    background-color: #202020;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #555 #202020; /* Firefox */
+  }
+  .sidebar::-webkit-scrollbar {
+    width: 8px;
+  }
+  .sidebar::-webkit-scrollbar-track {
+    background: #202020;
+  }
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    border: 2px solid #202020;
+  }
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+  }
+  .sidebar-header img {
+    margin-right: 10px;
+  }
+  .sidebar-header h1 {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+  }
+  .sidebar ul {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  .sidebar li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #f1f1f1;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .sidebar li a i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+  }
+  .sidebar li a:hover {
+    background-color: #333;
+  }
+  .sidebar li a.active {
+    background-color: #3f3f3f;
+    font-weight: bold;
+    border-left: 3px solid #ff0000;
+  }
+  .sidebar h4 {
+    color: #aaa;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 0 20px;
+    margin-bottom: 10px;
+  }
+
+  /* Container principal */
+  .main-content {
+    flex-grow: 1;
+    margin-left: 240px; /* Largura da sidebar */
+  }
+  .container {
+    padding-top: 80px; /* Espaço para o header fixo */
+    max-width: 100%;
+    padding: 80px 30px 30px 30px;
+  }
+
+  /* Grid vídeos */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  /* Cards vídeos */
+  .video-card {
+    background-color: #202020;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  }
+  .video-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+  .video-card-content {
+    padding: 15px;
+  }
+  .video-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .video-card p {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Modal do player */
+  #video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  #video-modal.active {
+    display: flex;
+  }
+  #video-modal .modal-content {
+    position: relative;
+    width: 95%;
+    max-width: 960px;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+  }
+  #video-modal iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    display: block;
+  }
+  #video-modal .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    font-weight: 300;
+    user-select: none;
+    transition: transform 0.2s;
+  }
+  #video-modal .close-btn:hover {
+    transform: scale(1.1);
+  }
+
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 60px;
+    }
+    .sidebar .sidebar-header,
+    .sidebar h4,
+    .sidebar li a span {
+      display: none;
+    }
+    .sidebar li a {
+      justify-content: center;
+    }
+    .sidebar li a i {
+      margin-right: 0;
+    }
+    .main-content {
+      margin-left: 60px;
+    }
+    header {
+      left: 60px;
+    }
+  }
+  @media (max-width: 768px) {
+    .video-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  @media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      left: 0;
+    }
+    .search-bar {
+      margin: 15px 0 0 0;
+      max-width: 100%;
+    }
+    .search-bar input, .search-bar button {
+      border-radius: 20px;
+    }
+    .search-bar button {
+      display: none; /* Simplifica para telas pequenas */
+    }
+    .container {
+        padding-top: 120px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1280px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube Logo" width="30" height="30" />
+        <h1>American Tube</h1>
+    </div>
+    <ul>
+        <li><a href="#" class="active"><i class="fa-solid fa-house"></i><span>Início</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-fire"></i><span>Em alta</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-list-ul"></i><span>Inscrições</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-history"></i><span>Histórico</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-play-circle"></i><span>Sua biblioteca</span></a></li>
+    </ul>
+
+    <h4>Explorar</h4>
+    <ul>
+        <li><a href="#"><i class="fa-solid fa-music"></i><span>Música</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-gamepad"></i><span>Jogos</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-trophy"></i><span>Esportes</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-newspaper"></i><span>Notícias</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-lightbulb"></i><span>Aprender</span></a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+  <header>
+    <div class="search-bar">
+        <input type="text" placeholder="Pesquisar vídeos..." id="searchInput" />
+        <button onclick="filtrarVideos()">🔎</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="video-grid" id="videoGrid">
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=0aVfL_4_NLw">
+        <img alt="Eminem: Live from Detroit [8K Ultra HD Version 2023] Anger Management Tour 2" />
+        <div class="video-card-content">
+          <h3>Eminem: Live from Detroit [8K Ultra HD Version 2023] Anger Management Tour 2</h3>
+          <p>ePro Team: Support for Eminem & Shady Records • 8.6M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=kdVElRhr4q4">
+        <img alt="Astrix @ Boom Festival 2023 (Full Set Movie)" />
+        <div class="video-card-content">
+          <h3>Astrix @ Boom Festival 2023 (Full Set Movie)</h3>
+          <p>Astrix • 5.1M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=2HXNVGGNWh0">
+        <img alt="Sublime With Rome at Paste Studio NYC live from The Manhattan Center" />
+        <div class="video-card-content">
+          <h3>Sublime With Rome at Paste Studio NYC live from The Manhattan Center</h3>
+          <p>Paste Magazine • 92.6K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=RPWdYMMLH54">
+        <img alt="Wiz Khalifa & Snoop Dogg Unite In Pittsburgh; Snoop Debuts New Song At Big Night AHT" />
+        <div class="video-card-content">
+          <h3>Wiz Khalifa & Snoop Dogg Unite In Pittsburgh; Snoop Debuts New Song At Big Night AHT</h3>
+          <p>The Pat McAfee Show • 226.9K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=uZ-he9idpkI">
+        <img alt="Sean Kingston - Beautiful Girls by Rome (@RAWsession Cover)" />
+        <div class="video-card-content">
+          <h3>Sean Kingston - Beautiful Girls by Rome (@RAWsession Cover)</h3>
+          <p>creativehouse • 1.3M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=y1XURXBIpsg">
+        <img alt="TI - Whatever You Like Live by Rome (@RAWsession Cover)" />
+        <div class="video-card-content">
+          <h3>TI - Whatever You Like Live by Rome (@RAWsession Cover)</h3>
+          <p>creativehouse • 2.6M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=LdMoYYeW9g8">
+        <img alt="Coolio 'Gangsta's Paradise' 09/05/95 - 'Late Night With Conan O'Brien'" />
+        <div class="video-card-content">
+          <h3>Coolio "Gangsta's Paradise" 09/05/95 - "Late Night With Conan O'Brien"</h3>
+          <p>Conan O'Brien • 37.3M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=yIbagmZg9jY">
+        <img alt="ROME 'Slow Ride'" />
+        <div class="video-card-content">
+          <h3>ROME "Slow Ride"</h3>
+          <p>ALT947Videos • 378.5K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=nXN6F3d0nyY">
+        <img alt="Sublime - 'Saw Red' performed by Rome feat. Kat & Eric Wilson (Sublime) @RAWsession" />
+        <div class="video-card-content">
+          <h3>Sublime - "Saw Red" performed by Rome feat. Kat & Eric Wilson (Sublime) @RAWsession</h3>
+          <p>creativehouse • 2.6M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=8nU7AfjXim4">
+        <img alt="Jason Mraz - I'm Yours LIVE by Rome (@RAWsession Cover)" />
+        <div class="video-card-content">
+          <h3>Jason Mraz - I'm Yours LIVE by Rome (@RAWsession Cover)</h3>
+          <p>creativehouse • 1.7M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=U1IjcMpPhpQ">
+        <img alt="Teto - M4 cantando com fã (show)" />
+        <div class="video-card-content">
+          <h3>Teto - M4 cantando com fã (show)</h3>
+          <p>Cínthia Stto • 1.4M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=1h6sZUr_eGA">
+        <img alt="What I Got - Sublime (Serena Trio cover acústico) Nossa Toca" />
+        <div class="video-card-content">
+          <h3>What I Got - Sublime (Serena Trio cover acústico) Nossa Toca</h3>
+          <p>Nossa Toca • 109.5K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=pxZKDKahvvM">
+        <img alt="Sublime “Santeria” Live in the Stern Show Studio" />
+        <div class="video-card-content">
+          <h3>Sublime “Santeria” Live in the Stern Show Studio</h3>
+          <p>The Howard Stern Show • 1.8M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=eyJJSuXl6Kk">
+        <img alt="Sublime - Garden Grove (cover)" />
+        <div class="video-card-content">
+          <h3>Sublime - Garden Grove (cover)</h3>
+          <p>Sir William Music • 4.5K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=365wR-wilqA">
+        <img alt="The Main Squeeze - “Layla” (Derek and the Dominos) - Live from The Squeeze House" />
+        <div class="video-card-content">
+          <h3>The Main Squeeze - “Layla” (Derek and the Dominos) - Live from The Squeeze House</h3>
+          <p>MainSqueezeMusic • 950.6K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=8KhNn7ZHJ0w">
+        <img alt="Sublime - Badfish 4/5/1996 (Live at the House Of Blues)" />
+        <div class="video-card-content">
+          <h3>Sublime - Badfish 4/5/1996 (Live at the House Of Blues)</h3>
+          <p>Sublime • 534.4K visualizações</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="video-modal">
+  <div class="modal-content">
+    <span class="close-btn" title="Fechar">×</span>
+    <iframe src="" allowfullscreen allow="autoplay; encrypted-media" allowtransparency="true"></iframe>
+  </div>
+</div>
+
+<script>
+  function extrairIdYoutube(url) {
+    const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  }
+
+  const modal = document.getElementById('video-modal');
+  const iframe = modal.querySelector('iframe');
+  const closeBtn = modal.querySelector('.close-btn');
+  const searchInput = document.getElementById('searchInput');
+
+  const videoCards = document.querySelectorAll('.video-card');
+
+  videoCards.forEach(card => {
+    const url = card.getAttribute('data-video-url');
+    const id = extrairIdYoutube(url);
+    if (id) {
+      card.setAttribute('data-video-id', id);
+      const img = card.querySelector('img');
+      img.src = `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+    }
+  });
+
+  videoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const videoId = card.getAttribute('data-video-id');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    iframe.src = '';
+    document.body.style.overflow = 'auto';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeBtn.click();
+    }
+  });
+
+  function filtrarVideos() {
+    const filtro = searchInput.value.toLowerCase();
+    videoCards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      if (title.includes(filtro)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput.addEventListener('keyup', e => {
+    if (e.key === 'Enter') filtrarVideos();
+  });
+</script>
+
+</body>
+</html>

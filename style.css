@@ -1,0 +1,163 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Cabeçalho topo */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.logo img {
+    height: 30px;
+}
+
+/* Barra de pesquisa */
+.barra-pesquisa {
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.barra-pesquisa input {
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px 0 0 2px;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.barra-pesquisa input:focus {
+    border-color: #ff0000; /* vermelho YouTube */
+}
+
+.barra-pesquisa button {
+    padding: 7px 15px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0 2px 2px 0;
+    transition: background-color 0.3s;
+}
+
+.barra-pesquisa button:hover {
+    background-color: #e5e5e5;
+}
+
+/* Usuário no topo */
+.usuario img {
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Conteúdo principal layout */
+.conteudo {
+    display: flex;
+    height: calc(100vh - 52px); /* topo + remove scrollbar */
+    overflow-y: auto;
+}
+
+/* Menu lateral */
+.menu {
+    width: 200px;
+    background: white;
+    padding: 15px 10px;
+    border-right: 1px solid #ddd;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.05);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 12px 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 4px;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.menu li:hover {
+    background-color: #f2f2f2;
+}
+
+/* Feed com grid responsivo de vídeos */
+.feed {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Cards dos vídeos */
+.video-card {
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+}
+
+.video-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+}
+
+.video-card h3 {
+    margin: 10px;
+    font-size: 16px;
+    line-height: 1.3;
+    flex-grow: 1;
+    color: #111;
+}
+
+.video-card p {
+    margin: 0 10px 10px;
+    color: gray;
+    font-size: 14px;
+    user-select: none;
+}
+
+/* Tornar links do vídeo por toda a área do card */
+.video-card a {
+    color: inherit;
+    text-decoration: none;
+}
