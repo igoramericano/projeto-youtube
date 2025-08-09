@@ -2,14 +2,15 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>American Tube</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 <style>
-    /* Reset e base */
+  /* Reset e base */
   * {
     box-sizing: border-box;
     margin: 0;
@@ -326,206 +327,255 @@
         <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i><span>Início</span></a></li>
         <li><a href="emalta.html"><i class="fa-solid fa-fire"></i><span>Em alta</span></a></li>
         <li><a href="historico.html"><i class="fa-solid fa-history"></i><span>Histórico</span></a></li>
-        
     </ul>
-
-    
 </nav>
 
 <div class="main-content">
-    <header>
-        <div class="search-bar">
-            <input type="text" placeholder="Pesquisar vídeos..." id="searchInput" />
-            <button onclick="filtrarVideos()">🔎</button>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="video-grid" id="videoGrid">
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=W4arzqY8cF8">
-                <img alt="Reggae Instrumentals 2024 Mixtape - Relaxing, Calming, Chill Reggae Riddim Mix 2024! - KennyMuziq" />
-                <div class="video-card-content">
-                    <h3>Reggae Instrumentals 2024 Mixtape - Relaxing, Calming, Chill Reggae Riddim Mix 2024! - KennyMuziq</h3>
-                    <p>Riddims By KennyMuziq • 642.183 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=WlTUMkJksFA">
-                <img alt="Bob Marley – &quot;One Love&quot; and &quot;Redemption Song&quot;: The Eternal Voice of Freedom 🎤🌍" />
-                <div class="video-card-content">
-                    <h3>Bob Marley – "One Love" and "Redemption Song": The Eternal Voice of Freedom 🎤🌍</h3>
-                    <p>OneDrop Diaries • 2.121 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=z9Eymq_9ZSA">
-                <img alt="🌴 Reggae Dub Mix 2025 - Vibes for Heart & Soul 🌴" />
-                <div class="video-card-content">
-                    <h3>🌴 Reggae Dub Mix 2025 - Vibes for Heart & Soul 🌴</h3>
-                    <p>Hot Buds - Music • 615.837 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=VkM2JQtth1Q">
-                <img alt="🔥 The MOST INSANE Reggae Tracks You’ll EVER Hear! These Anthems Will Leave You SHOCKED! 😱" />
-                <div class="video-card-content">
-                    <h3>🔥 The MOST INSANE Reggae Tracks You’ll EVER Hear! These Anthems Will Leave You SHOCKED! 😱</h3>
-                    <p>ZionRoots • 1.090.389 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=T1d86VpfuUk">
-                <img alt="REGGAE DUB CHRONICLES #2 - Best Reggae Tracks &amp; Timeless Dub Beats!" />
-                <div class="video-card-content">
-                    <h3>REGGAE DUB CHRONICLES #2 - Best Reggae Tracks & Timeless Dub Beats!</h3>
-                    <p>Dub Temple - Music • 32.689 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=XbA5oZEcwqk">
-                <img alt="🌿 Green Clouds | Reggae Chill &amp; Blaze💨" />
-                <div class="video-card-content">
-                    <h3>🌿 Green Clouds | Reggae Chill & Blaze💨</h3>
-                    <p>Hot Buds - Music • 212.296 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=cpvlXdnHFkE">
-                <img alt="REGGAE DUB 2025 MIXTAPE - The Best Reggae Tracks &amp; Dub Beats of 2025!" />
-                <div class="video-card-content">
-                    <h3>REGGAE DUB 2025 MIXTAPE - The Best Reggae Tracks & Dub Beats of 2025!</h3>
-                    <p>Dub Temple - Music • 285.190 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=KLZg3Tg9wG4">
-                <img alt="Mellow Mood play Bob Marley: a tribute to the king of reggae" />
-                <div class="video-card-content">
-                    <h3>Mellow Mood play Bob Marley: a tribute to the king of reggae</h3>
-                    <p>Mellow Mood • 4.886.946 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=0KG5r4nfrUo">
-                <img alt="🔥 Herbal Vibes – Deep Roots Reggae Trip" />
-                <div class="video-card-content">
-                    <h3>🔥 Herbal Vibes – Deep Roots Reggae Trip</h3>
-                    <p>Hot Buds - Music • 82.169 visualizações</p>
-                </div>
-            </div>
-
-            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=ZEEdeIycQUU">
-                <img alt="REGGAE QUEENS | EPISODE 6 🎧 | Focused in the Riddim – Deep Reggae DJ Set" />
-                <div class="video-card-content">
-                    <h3>REGGAE QUEENS | EPISODE 6 🎧 | Focused in the Riddim – Deep Reggae DJ Set</h3>
-                    <p>Reggae Queens • 69.619 visualizações</p>
-                </div>
-            </div>
-        </div>
+  <header>
+    <div class="search-bar">
+        <input type="text" placeholder="Pesquisar vídeos..." id="searchInput" />
+        <button onclick="filtrarVideos()">🔎</button>
     </div>
+  </header>
+
+  <div class="container">
+    <div class="video-grid" id="videoGrid">
+
+      <!-- Seus vídeos prontos, com data-video-url, títulos, etc -->
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=0aVfL_4_NLw">
+        <img alt="Eminem: Live from Detroit [8K Ultra HD Version 2023] Anger Management Tour 2" />
+        <div class="video-card-content">
+          <h3>Eminem: Live from Detroit [8K Ultra HD Version 2023] Anger Management Tour 2</h3>
+          <p>ePro Team: Support for Eminem & Shady Records • 8.6M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=kdVElRhr4q4">
+        <img alt="Astrix @ Boom Festival 2023 (Full Set Movie)" />
+        <div class="video-card-content">
+          <h3>Astrix @ Boom Festival 2023 (Full Set Movie)</h3>
+          <p>Astrix • 5.1M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=2HXNVGGNWh0">
+        <img alt="Sublime With Rome at Paste Studio NYC live from The Manhattan Center" />
+        <div class="video-card-content">
+          <h3>Sublime With Rome at Paste Studio NYC live from The Manhattan Center</h3>
+          <p>Paste Magazine • 92.6K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=RPWdYMMLH54">
+        <img alt="Wiz Khalifa & Snoop Dogg Unite In Pittsburgh; Snoop Debuts New Song At Big Night AHT" />
+        <div class="video-card-content">
+          <h3>Wiz Khalifa & Snoop Dogg Unite In Pittsburgh; Snoop Debuts New Song At Big Night AHT</h3>
+          <p>The Pat McAfee Show • 226.9K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=uZ-he9idpkI">
+        <img alt="Sean Kingston - Beautiful Girls by Rome (@RAWsession Cover)" />
+        <div class="video-card-content">
+          <h3>Sean Kingston - Beautiful Girls by Rome (@RAWsession Cover)</h3>
+          <p>creativehouse • 1.3M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=y1XURXBIpsg">
+        <img alt="TI - Whatever You Like Live by Rome (@RAWsession Cover)" />
+        <div class="video-card-content">
+          <h3>TI - Whatever You Like Live by Rome (@RAWsession Cover)</h3>
+          <p>creativehouse • 2.6M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=LdMoYYeW9g8">
+        <img alt="Coolio 'Gangsta's Paradise' 09/05/95 - 'Late Night With Conan O'Brien'" />
+        <div class="video-card-content">
+          <h3>Coolio "Gangsta's Paradise" 09/05/95 - "Late Night With Conan O'Brien"</h3>
+          <p>Conan O'Brien • 37.3M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=yIbagmZg9jY">
+        <img alt="ROME 'Slow Ride'" />
+        <div class="video-card-content">
+          <h3>ROME "Slow Ride"</h3>
+          <p>ALT947Videos • 378.5K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=nXN6F3d0nyY">
+        <img alt="Sublime - 'Saw Red' performed by Rome feat. Kat & Eric Wilson (Sublime) @RAWsession" />
+        <div class="video-card-content">
+          <h3>Sublime - "Saw Red" performed by Rome feat. Kat & Eric Wilson (Sublime) @RAWsession</h3>
+          <p>creativehouse • 2.6M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=8nU7AfjXim4">
+        <img alt="Jason Mraz - I'm Yours LIVE by Rome (@RAWsession Cover)" />
+        <div class="video-card-content">
+          <h3>Jason Mraz - I'm Yours LIVE by Rome (@RAWsession Cover)</h3>
+          <p>creativehouse • 1.7M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=U1IjcMpPhpQ">
+        <img alt="Teto - M4 cantando com fã (show)" />
+        <div class="video-card-content">
+          <h3>Teto - M4 cantando com fã (show)</h3>
+          <p>Cínthia Stto • 1.4M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=1h6sZUr_eGA">
+        <img alt="What I Got - Sublime (Serena Trio cover acústico) Nossa Toca" />
+        <div class="video-card-content">
+          <h3>What I Got - Sublime (Serena Trio cover acústico) Nossa Toca</h3>
+          <p>Nossa Toca • 109.5K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=pxZKDKahvvM">
+        <img alt="Sublime “Santeria” Live in the Stern Show Studio" />
+        <div class="video-card-content">
+          <h3>Sublime “Santeria” Live in the Stern Show Studio</h3>
+          <p>The Howard Stern Show • 1.8M visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=eyJJSuXl6Kk">
+        <img alt="Sublime - Garden Grove (cover)" />
+        <div class="video-card-content">
+          <h3>Sublime - Garden Grove (cover)</h3>
+          <p>Sir William Music • 4.5K visualizações</p>
+        </div>
+      </div>
+
+      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=365wR-wilqE">
+        <img alt="Sublime - What I Got - Full Concert [Seattle 1995]" />
+        <div class="video-card-content">
+          <h3>Sublime - What I Got - Full Concert [Seattle 1995]</h3>
+          <p>Livestream Sublime • 9.7M visualizações</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
+<!-- Modal para vídeo -->
 <div id="video-modal">
-    <div class="modal-content">
-        <span class="close-btn" title="Fechar">×</span>
-        <iframe src="" allowfullscreen allow="autoplay; encrypted-media" allowtransparency="true"></iframe>
-    </div>
+  <div class="modal-content">
+    <span class="close-btn" title="Fechar">×</span>
+    <iframe src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
 </div>
-
 <script>
-    // Função para extrair o ID do YouTube
-    function extrairIdYoutube(url) {
-        const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/;
-        const match = url.match(regex);
-        return match ? match[1] : null;
+  
+  // Função para extrair o ID do vídeo do YouTube a partir da URL
+  function extrairVideoId(url) {
+    const regex = /(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w-]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  }
+
+  // Adiciona as thumbnails e eventos
+  const videoCards = document.querySelectorAll('.video-card');
+  const modal = document.getElementById('video-modal');
+  const iframe = modal.querySelector('iframe');
+  const closeBtn = modal.querySelector('.close-btn');
+
+  // Coloca as thumbnails automáticas baseadas no ID do vídeo
+  videoCards.forEach(card => {
+    const url = card.getAttribute('data-video-url');
+    const videoId = extrairVideoId(url);
+    if (videoId) {
+      // Thumbnail padrão do YouTube
+      const img = card.querySelector('img');
+      img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      img.alt = card.querySelector('h3').textContent;
+
+      // Salva o videoId para facilitar depois
+      card.setAttribute('data-video-id', videoId);
     }
+  });
 
-    // Função para salvar o histórico no localStorage
-    function salvarHistorico(videoInfo) {
-        let historico = JSON.parse(localStorage.getItem('videosHistorico')) || [];
-        
-        // Remove o vídeo se ele já estiver no histórico para colocá-lo no topo
-        historico = historico.filter(v => v.id !== videoInfo.id);
+  // Abrir modal e salvar histórico
+  videoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const videoId = card.getAttribute('data-video-id');
+      const title = card.querySelector('h3').textContent;
+      const url = card.getAttribute('data-video-url');
+      const thumbnail = card.querySelector('img').src;
 
-        // Adiciona o novo vídeo no início da lista
-        historico.unshift(videoInfo);
+      // Salvar no histórico localStorage
+      let historico = JSON.parse(localStorage.getItem('videoHistorico')) || [];
 
-        // Limita o histórico a 10 vídeos (opcional)
-        if (historico.length > 10) {
-            historico.pop();
-        }
+      // Remove vídeo duplicado se existir
+      historico = historico.filter(v => v.videoId !== videoId);
 
-        localStorage.setItem('videosHistorico', JSON.stringify(historico));
-    }
+      // Adiciona no início
+      historico.unshift({ videoId, title, url, thumbnail, watchedAt: new Date().toISOString() });
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('video-modal');
-        const iframe = modal.querySelector('iframe');
-        const closeBtn = modal.querySelector('.close-btn');
-        const searchInput = document.getElementById('searchInput');
+      // Limitar a 50 vídeos
+      if (historico.length > 50) historico.pop();
 
-        const videoCards = document.querySelectorAll('.video-card');
+      localStorage.setItem('videoHistorico', JSON.stringify(historico));
 
-        // Adiciona thumbnails aos cards
-        videoCards.forEach(card => {
-            const url = card.getAttribute('data-video-url');
-            const id = extrairIdYoutube(url);
-            if (id) {
-                card.setAttribute('data-video-id', id);
-                const img = card.querySelector('img');
-                if (img) {
-                    img.src = `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
-                }
-            }
-        });
-
-        // Adiciona o evento de clique para abrir o modal e salvar no histórico
-        videoCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const videoId = card.getAttribute('data-video-id');
-                const videoUrl = card.getAttribute('data-video-url');
-                const videoTitle = card.querySelector('h3').textContent;
-
-                const videoInfo = {
-                    id: videoId,
-                    url: videoUrl,
-                    title: videoTitle
-                };
-                salvarHistorico(videoInfo);
-
-                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-            iframe.src = '';
-            document.body.style.overflow = 'auto';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeBtn.click();
-            }
-        });
-
-        // Função para filtrar os vídeos
-        function filtrarVideos() {
-            const filtro = searchInput.value.toLowerCase();
-            videoCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                if (title.includes(filtro)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+      // Abrir modal
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     });
+  });
+
+  // Fechar modal
+  closeBtn.addEventListener('click', fecharModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) fecharModal();
+  });
+  function fecharModal() {
+    modal.classList.remove('active');
+    iframe.src = '';
+    document.body.style.overflow = 'auto';
+  }
+
+  // Filtrar vídeos pela pesquisa
+  function filtrarVideos() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    videoCards.forEach(card => {
+      const titulo = card.querySelector('h3').textContent.toLowerCase();
+      if (titulo.includes(input)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Enter na busca também filtra
+  document.getElementById('searchInput').addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') filtrarVideos();
+  });
+
+  // Tocar vídeo automaticamente pela query string ?play=ID
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const playId = params.get('play');
+    if (playId) {
+      // Tenta achar o card para marcar (opcional)
+      const cardToPlay = Array.from(videoCards).find(c => c.getAttribute('data-video-id') === playId);
+      if (cardToPlay) cardToPlay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      iframe.src = `https://www.youtube.com/embed/${playId}?autoplay=1&rel=0`;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  });
 
 </script>
-
 </body>
 </html>

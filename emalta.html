@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
   /* Reset e base */
   * {
@@ -327,7 +328,6 @@
         <li><a href="emalta.html" class="active"><i class="fa-solid fa-fire"></i><span>Em alta</span></a></li>
         <li><a href="historico.html"><i class="fa-solid fa-history"></i><span>Histórico</span></a></li>
     </ul>
-    <h4>Explorar</h4>
 </nav>
 
 <div class="main-content">
@@ -431,75 +431,93 @@
   </div>
 </div>
 
-<script>
-  // Extrai o ID do vídeo YouTube da URL
-  function extrairIdYoutube(url) {
-    const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/;
-    const match = url.match(regex);
-    return match ? match[1] : null;
-  }
-
-  // Inicialização após o DOM estar carregado
-  document.addEventListener('DOMContentLoaded', () => {
+  <script>
+    // Função para extrair o ID do vídeo do YouTube a partir da URL
+    function extrairVideoId(url) {
+      const regex = /(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w-]+)/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    }
+    // Adiciona as thumbnails e eventos
+    const videoCards = document.querySelectorAll('.video-card');
     const modal = document.getElementById('video-modal');
     const iframe = modal.querySelector('iframe');
     const closeBtn = modal.querySelector('.close-btn');
-    const searchInput = document.getElementById('searchInput');
-    const videoCards = document.querySelectorAll('.video-card');
-
-    // Atualiza thumbnail e adiciona data-video-id para cada card
+    // Coloca as thumbnails automáticas baseadas no ID do vídeo
     videoCards.forEach(card => {
       const url = card.getAttribute('data-video-url');
-      const id = extrairIdYoutube(url);
-      if (id) {
-        card.setAttribute('data-video-id', id);
+      const videoId = extrairVideoId(url);
+      if (videoId) {
+        // Thumbnail padrão do YouTube
         const img = card.querySelector('img');
-        if (img) {
-          img.setAttribute("src", `https://img.youtube.com/vi/${id}/mqdefault.jpg`); // thumbnail média
-        }
+        img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        img.alt = card.querySelector('h3').textContent;
+        // Salva o videoId para facilitar depois
+        card.setAttribute('data-video-id', videoId);
       }
     });
-
-    // Evento clique abre modal com vídeo
+    // Abrir modal e salvar histórico
     videoCards.forEach(card => {
       card.addEventListener('click', () => {
         const videoId = card.getAttribute('data-video-id');
+        const title = card.querySelector('h3').textContent;
+        const url = card.getAttribute('data-video-url');
+        const thumbnail = card.querySelector('img').src;
+        // Salvar no histórico localStorage
+        let historico = JSON.parse(localStorage.getItem('videoHistorico')) || [];
+        // Remove vídeo duplicado se existir
+        historico = historico.filter(v => v.videoId !== videoId);
+        // Adiciona no início
+        historico.unshift({ videoId, title, url, thumbnail, watchedAt: new Date().toISOString() });
+        // Limitar a 50 vídeos
+        if (historico.length > 50) historico.pop();
+        localStorage.setItem('videoHistorico', JSON.stringify(historico));
+        // Abrir modal
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // trava scroll
+        document.body.style.overflow = 'hidden';
       });
     });
-
-    // Fecha modal ao clicar no X
-    closeBtn.addEventListener('click', () => {
+    // Fechar modal
+    closeBtn.addEventListener('click', fecharModal);
+    modal.addEventListener('click', e => {
+      if (e.target === modal) fecharModal();
+    });
+    function fecharModal() {
       modal.classList.remove('active');
       iframe.src = '';
-      document.body.style.overflow = 'auto'; // libera scroll
-    });
-
-    // Fecha modal ao clicar fora do conteúdo
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeBtn.click();
-      }
-    });
-
-    // Função de filtro (busca) por título
+      document.body.style.overflow = 'auto';
+    }
+    // Filtrar vídeos pela pesquisa
     function filtrarVideos() {
-      const filtro = searchInput.value.toLowerCase();
+      const input = document.getElementById('searchInput').value.toLowerCase();
       videoCards.forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        card.style.display = title.includes(filtro) ? "" : "none";
+        const titulo = card.querySelector('h3').textContent.toLowerCase();
+        if (titulo.includes(input)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
       });
     }
-
-    // Busca ao apertar Enter no input
-    searchInput.addEventListener('keyup', e => {
+    // Enter na busca também filtra
+    document.getElementById('searchInput').addEventListener('keyup', (e) => {
       if (e.key === 'Enter') filtrarVideos();
     });
-  });
-</script>
-
+    // Tocar vídeo automaticamente pela query string ?play=ID
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const playId = params.get('play');
+      if (playId) {
+        // Tenta achar o card para marcar (opcional)
+        const cardToPlay = Array.from(videoCards).find(c => c.getAttribute('data-video-id') === playId);
+        if (cardToPlay) cardToPlay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        iframe.src = `https://www.youtube.com/embed/${playId}?autoplay=1&rel=0`;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  </script>
 
 </body>
 </html>
