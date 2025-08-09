@@ -325,276 +325,103 @@
     <ul>
         <li><a href="index.html"><i class="fa-solid fa-house"></i><span>Início</span></a></li>
         <li><a href="emalta.html" class="active"><i class="fa-solid fa-fire"></i><span>Em alta</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-list-ul"></i><span>Inscrições</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-history"></i><span>Histórico</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-play-circle"></i><span>Sua biblioteca</span></a></li>
+        <li><a href="historico.html"><i class="fa-solid fa-history"></i><span>Histórico</span></a></li>
     </ul>
     <h4>Explorar</h4>
 </nav>
 
 <div class="main-content">
-  <header>
-    <div class="search-bar">
-        <input type="text" placeholder="Pesquisar vídeos..." id="searchInput" />
-        <button onclick="filtrarVideos()">🔎</button>
+    <header>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar vídeos..." id="searchInput" />
+            <button onclick="filtrarVideos()">🔎</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="video-grid" id="videoGrid">
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=W4arzqY8cF8">
+                <img src="https://img.youtube.com/vi/W4arzqY8cF8/mqdefault.jpg" alt="Reggae Instrumentals 2024 Mixtape - Relaxing, Calming, Chill Reggae Riddim Mix 2024! - KennyMuziq" />
+                <div class="video-card-content">
+                    <h3>Reggae Instrumentals 2024 Mixtape - Relaxing, Calming, Chill Reggae Riddim Mix 2024! - KennyMuziq</h3>
+                    <p>Riddims By KennyMuziq • 642.183 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=WlTUMkJksFA">
+                <img src="https://img.youtube.com/vi/WlTUMkJksFA/mqdefault.jpg" alt="Bob Marley – &quot;One Love&quot; and &quot;Redemption Song&quot;: The Eternal Voice of Freedom 🎤🌍" />
+                <div class="video-card-content">
+                    <h3>Bob Marley – "One Love" and "Redemption Song": The Eternal Voice of Freedom 🎤🌍</h3>
+                    <p>OneDrop Diaries • 2.121 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=z9Eymq_9ZSA">
+                <img src="https://img.youtube.com/vi/z9Eymq_9ZSA/mqdefault.jpg" alt="🌴 Reggae Dub Mix 2025 - Vibes for Heart & Soul 🌴" />
+                <div class="video-card-content">
+                    <h3>🌴 Reggae Dub Mix 2025 - Vibes for Heart & Soul 🌴</h3>
+                    <p>Hot Buds - Music • 615.837 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=VkM2JQtth1Q">
+                <img src="https://img.youtube.com/vi/VkM2JQtth1Q/mqdefault.jpg" alt="🔥 The MOST INSANE Reggae Tracks You’ll EVER Hear! These Anthems Will Leave You SHOCKED! 😱" />
+                <div class="video-card-content">
+                    <h3>🔥 The MOST INSANE Reggae Tracks You’ll EVER Hear! These Anthems Will Leave You SHOCKED! 😱</h3>
+                    <p>ZionRoots • 1.090.389 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=T1d86VpfuUk">
+                <img src="https://img.youtube.com/vi/T1d86VpfuUk/mqdefault.jpg" alt="REGGAE DUB CHRONICLES #2 - Best Reggae Tracks &amp; Timeless Dub Beats!" />
+                <div class="video-card-content">
+                    <h3>REGGAE DUB CHRONICLES #2 - Best Reggae Tracks & Timeless Dub Beats!</h3>
+                    <p>Dub Temple - Music • 32.689 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=XbA5oZEcwqk">
+                <img src="https://img.youtube.com/vi/XbA5oZEcwqk/mqdefault.jpg" alt="🌿 Green Clouds | Reggae Chill &amp; Blaze💨" />
+                <div class="video-card-content">
+                    <h3>🌿 Green Clouds | Reggae Chill & Blaze💨</h3>
+                    <p>Hot Buds - Music • 212.296 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=cpvlXdnHFkE">
+                <img src="https://img.youtube.com/vi/cpvlXdnHFkE/mqdefault.jpg" alt="REGGAE DUB 2025 MIXTAPE - The Best Reggae Tracks &amp; Dub Beats of 2025!" />
+                <div class="video-card-content">
+                    <h3>REGGAE DUB 2025 MIXTAPE - The Best Reggae Tracks & Dub Beats of 2025!</h3>
+                    <p>Dub Temple - Music • 285.190 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=KLZg3Tg9wG4">
+                <img src="https://img.youtube.com/vi/KLZg3Tg9wG4/mqdefault.jpg" alt="Mellow Mood play Bob Marley: a tribute to the king of reggae" />
+                <div class="video-card-content">
+                    <h3>Mellow Mood play Bob Marley: a tribute to the king of reggae</h3>
+                    <p>Mellow Mood • 4.886.946 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=0KG5r4nfrUo">
+                <img src="https://img.youtube.com/vi/0KG5r4nfrUo/mqdefault.jpg" alt="🔥 Herbal Vibes – Deep Roots Reggae Trip" />
+                <div class="video-card-content">
+                    <h3>🔥 Herbal Vibes – Deep Roots Reggae Trip</h3>
+                    <p>Hot Buds - Music • 82.169 visualizações</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-video-url="https://www.youtube.com/watch?v=ZEEdeIycQUU">
+                <img src="https://img.youtube.com/vi/ZEEdeIycQUU/mqdefault.jpg" alt="REGGAE QUEENS | EPISODE 6 🎧 | Focused in the Riddim – Deep Reggae DJ Set" />
+                <div class="video-card-content">
+                    <h3>REGGAE QUEENS | EPISODE 6 🎧 | Focused in the Riddim – Deep Reggae DJ Set</h3>
+                    <p>Reggae Queens • 69.619 visualizações</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <div class="container">
-    <div class="video-grid" id="videoGrid">
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=O_0Wn73AnC8">
-        <img src="" alt="Ed Sheeran - A Little More (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Ed Sheeran - A Little More (Official Music Video)</h3>
-          <p>Ed Sheeran • 2.3M visualizações • 1 dia atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=q6g4gS8o6d0">
-        <img src="" alt="Chappell Roan - The Subway (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Chappell Roan - The Subway (Official Music Video)</h3>
-          <p>Chappell Roan • 7.1M visualizações • 7 dias atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=A_2G-jE5u40">
-        <img src="" alt="Billie Eilish - BIRDS OF A FEATHER (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Billie Eilish - BIRDS OF A FEATHER (Official Music Video)</h3>
-          <p>Billie Eilish • 112M visualizações • 2 meses atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=1T_u-S_bJ_s">
-        <img src="" alt="Taylor Swift - I Can See You (Taylor's Version) (From The Vault)" />
-        <div class="video-card-content">
-          <h3>Taylor Swift - I Can See You (Taylor's Version) (From The Vault)</h3>
-          <p>Taylor Swift • 107M visualizações • 1 ano atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=f-Lp1G-x6A4">
-        <img src="" alt="The Weeknd - Blinding Lights (Official Video)" />
-        <div class="video-card-content">
-          <h3>The Weeknd - Blinding Lights (Official Video)</h3>
-          <p>The Weeknd • 3.7B visualizações • 4 anos atrás</p>
-        </div>
-      </div>
-      
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=52YpB7W-K40">
-        <img src="" alt="ROSÉ & Bruno Mars - APT. (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>ROSÉ & Bruno Mars - APT. (Official Music Video)</h3>
-          <p>ROSÉ • 200M visualizações • 2 semanas atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=4T9C-w0tJ6E">
-        <img src="" alt="Sabrina Carpenter - Espresso (Official Video)" />
-        <div class="video-card-content">
-          <h3>Sabrina Carpenter - Espresso (Official Video)</h3>
-          <p>Sabrina Carpenter • 280M visualizações • 3 meses atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=I8T_Wn_R4jA">
-        <img src="" alt="Tyla - IS IT (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Tyla - IS IT (Official Music Video)</h3>
-          <p>Tyla • 20M visualizações • 1 mês atrás</p>
-        </div>
-      </div>
-      
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=qT6jDq1f7-Q">
-        <img src="" alt="Anitta - GRIP (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Anitta - GRIP (Official Music Video)</h3>
-          <p>Anitta • 5.8M visualizações • 1 semana atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=Yf-jY4o39_0">
-        <img src="" alt="Jão - Me Lambe (Clipe Oficial)" />
-        <div class="video-card-content">
-          <h3>Jão - Me Lambe (Clipe Oficial)</h3>
-          <p>Jão • 24M visualizações • 1 ano atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=tQ0yjgD0s3k">
-        <img src="" alt="Maroon 5 - Priceless ft. LISA (Official Video)" />
-        <div class="video-card-content">
-          <h3>Maroon 5 - Priceless ft. LISA (Official Video)</h3>
-          <p>Maroon 5 • 8M visualizações • 1 semana atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=K3-yVl6iR60">
-        <img src="" alt="Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)</h3>
-          <p>Lady Gaga • 250M visualizações • 1 mês atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=d_Hl7aJ5Vig">
-        <img src="" alt="Travis Scott - goosebumps (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Travis Scott - goosebumps (Official Music Video)</h3>
-          <p>Travis Scott • 1.1B visualizações • 7 anos atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=68E6y6j6y7o">
-        <img src="" alt="ROSALÍA - DESPECHÁ (Official Video)" />
-        <div class="video-card-content">
-          <h3>ROSALÍA - DESPECHÁ (Official Video)</h3>
-          <p>ROSALÍA • 186M visualizações • 2 anos atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=LqN6_o087x4">
-        <img src="" alt="Lil Nas X - OLD TOWN ROAD (Official Movie)" />
-        <div class="video-card-content">
-          <h3>Lil Nas X - OLD TOWN ROAD (Official Movie)</h3>
-          <p>Lil Nas X • 1.1B visualizações • 5 anos atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=8hI4q79_pBc">
-        <img src="" alt="The Weeknd - Die For You (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>The Weeknd - Die For You (Official Music Video)</h3>
-          <p>The Weeknd • 1.3B visualizações • 1 ano atrás</p>
-        </div>
-      </div>
-
-    </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=q6g4gS8o6d0">
-        <img src="" alt="Chappell Roan - The Subway (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Chappell Roan - The Subway (Official Music Video)</h3>
-          <p>Chappell Roan • 7.1M visualizações • 7 dias atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=A_2G-jE5u40">
-        <img src="" alt="Billie Eilish - BIRDS OF A FEATHER (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Billie Eilish - BIRDS OF A FEATHER (Official Music Video)</h3>
-          <p>Billie Eilish • 112M visualizações • 2 meses atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=1T_u-S_bJ_s">
-        <img src="" alt="Taylor Swift - I Can See You (Taylor's Version) (From The Vault)" />
-        <div class="video-card-content">
-          <h3>Taylor Swift - I Can See You (Taylor's Version) (From The Vault)</h3>
-          <p>Taylor Swift • 107M visualizações • 1 ano atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=f-Lp1G-x6A4">
-        <img src="" alt="The Weeknd - Blinding Lights (Official Video)" />
-        <div class="video-card-content">
-          <h3>The Weeknd - Blinding Lights (Official Video)</h3>
-          <p>The Weeknd • 3.7B visualizações • 4 anos atrás</p>
-        </div>
-      </div>
-      
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=52YpB7W-K40">
-        <img src="" alt="ROSÉ & Bruno Mars - APT. (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>ROSÉ & Bruno Mars - APT. (Official Music Video)</h3>
-          <p>ROSÉ • 200M visualizações • 2 semanas atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=4T9C-w0tJ6E">
-        <img src="" alt="Sabrina Carpenter - Espresso (Official Video)" />
-        <div class="video-card-content">
-          <h3>Sabrina Carpenter - Espresso (Official Video)</h3>
-          <p>Sabrina Carpenter • 280M visualizações • 3 meses atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=I8T_Wn_R4jA">
-        <img src="" alt="Tyla - IS IT (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Tyla - IS IT (Official Music Video)</h3>
-          <p>Tyla • 20M visualizações • 1 mês atrás</p>
-        </div>
-      </div>
-      
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=qT6jDq1f7-Q">
-        <img src="" alt="Anitta - GRIP (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Anitta - GRIP (Official Music Video)</h3>
-          <p>Anitta • 5.8M visualizações • 1 semana atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=Yf-jY4o39_0">
-        <img src="" alt="Jão - Me Lambe (Clipe Oficial)" />
-        <div class="video-card-content">
-          <h3>Jão - Me Lambe (Clipe Oficial)</h3>
-          <p>Jão • 24M visualizações • 1 ano atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=tQ0yjgD0s3k">
-        <img src="" alt="Maroon 5 - Priceless ft. LISA (Official Video)" />
-        <div class="video-card-content">
-          <h3>Maroon 5 - Priceless ft. LISA (Official Video)</h3>
-          <p>Maroon 5 • 8M visualizações • 1 semana atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=K3-yVl6iR60">
-        <img src="" alt="Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)</h3>
-          <p>Lady Gaga • 250M visualizações • 1 mês atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=d_Hl7aJ5Vig">
-        <img src="" alt="Travis Scott - goosebumps (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>Travis Scott - goosebumps (Official Music Video)</h3>
-          <p>Travis Scott • 1.1B visualizações • 7 anos atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=68E6y6j6y7o">
-        <img src="" alt="ROSALÍA - DESPECHÁ (Official Video)" />
-        <div class="video-card-content">
-          <h3>ROSALÍA - DESPECHÁ (Official Video)</h3>
-          <p>ROSALÍA • 186M visualizações • 2 anos atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=LqN6_o087x4">
-        <img src="" alt="Lil Nas X - OLD TOWN ROAD (Official Movie)" />
-        <div class="video-card-content">
-          <h3>Lil Nas X - OLD TOWN ROAD (Official Movie)</h3>
-          <p>Lil Nas X • 1.1B visualizações • 5 anos atrás</p>
-        </div>
-      </div>
-
-      <div class="video-card" data-video-url="https://www.youtube.com/watch?v=8hI4q79_pBc">
-        <img src="" alt="The Weeknd - Die For You (Official Music Video)" />
-        <div class="video-card-content">
-          <h3>The Weeknd - Die For You (Official Music Video)</h3>
-          <p>The Weeknd • 1.3B visualizações • 1 ano atrás</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
 
 <div id="video-modal">
@@ -626,10 +453,9 @@
       const id = extrairIdYoutube(url);
       if (id) {
         card.setAttribute('data-video-id', id);
-        // Seleciona a imagem diretamente dentro do card
         const img = card.querySelector('img');
         if (img) {
-          img.setAttribute('src', `https://img.youtube.com/vi/${id}/mqdefault.jpg`); // thumbnail média
+          img.setAttribute("src", `https://img.youtube.com/vi/${id}/mqdefault.jpg`); // thumbnail média
         }
       }
     });
@@ -663,7 +489,7 @@
       const filtro = searchInput.value.toLowerCase();
       videoCards.forEach(card => {
         const title = card.querySelector('h3').textContent.toLowerCase();
-        card.style.display = title.includes(filtro) ? 'block' : 'none';
+        card.style.display = title.includes(filtro) ? "" : "none";
       });
     }
 
@@ -673,6 +499,7 @@
     });
   });
 </script>
+
 
 </body>
 </html>
