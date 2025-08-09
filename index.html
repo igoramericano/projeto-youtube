@@ -323,8 +323,8 @@
         <h1>American Tube</h1>
     </div>
     <ul>
-        <li><a href="#" class="active"><i class="fa-solid fa-house"></i><span>Início</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-fire"></i><span>Em alta</span></a></li>
+        <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i><span>Início</span></a></li>
+        <li><a href="emalta.html"><i class="fa-solid fa-fire"></i><span>Em alta</span></a></li>
         <li><a href="#"><i class="fa-solid fa-list-ul"></i><span>Inscrições</span></a></li>
         <li><a href="#"><i class="fa-solid fa-history"></i><span>Histórico</span></a></li>
         <li><a href="#"><i class="fa-solid fa-play-circle"></i><span>Sua biblioteca</span></a></li>
@@ -492,7 +492,7 @@
 
 <script>
   function extrairIdYoutube(url) {
-    const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/;
+    const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/;
     const match = url.match(regex);
     return match ? match[1] : null;
   }
